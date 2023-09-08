@@ -34,11 +34,11 @@ The following modules are required:
 
 See a running example with at least 3 concurrent process windows here:
 
-![Mac Example](MultipleConsumers.png)
+![MultipleConsumers](MultipleConsumers.png)
 
 RabbitMQ WebInterface screenshot:
 
-![Mac Example](RabbitMQWebinterface.png)
+![UI](RabbitMQWebinterface.png)
 
 
 ## Suggested Readings
