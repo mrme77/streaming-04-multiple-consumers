@@ -38,7 +38,7 @@ See a running example with at least 3 concurrent process windows here:
 
 RabbitMQ WebInterface screenshot:
 
-![UI](RabbitMQWebinterface.png)
+![UI](UI.png)
 
 
 ## Suggested Readings
