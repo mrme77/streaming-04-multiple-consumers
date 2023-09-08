@@ -37,6 +37,7 @@ See a running example with at least 3 concurrent process windows here:
 ![Mac Example](MultipleConsumers.png)
 
 RabbitMQ WebInterface screenshot:
+
 ![Mac Example](RabbitMQWebinterface.png)
 
 
