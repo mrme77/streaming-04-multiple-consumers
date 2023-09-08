@@ -27,7 +27,15 @@ The following modules are required:
 | pika            | 1.3.2    |
 
 
+## Notes
 
+I only implemented the logging functionality in lieu of the print statements in the emitter_of_taks file  as I like receiving some sort of feedback on screen:
+
+`ch.basic_publish(exchange="", routing_key=queue_name, body=message)
+        # log the message instead of printing it
+        dot_count = message.count('.')
+        time.sleep(dot_count)
+        logging.info(f" [x] Sent {message}")`      
 
 
 ## Multiple Terminals Screenshots
