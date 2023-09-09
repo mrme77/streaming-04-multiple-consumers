@@ -7,6 +7,10 @@ Make tasks harder/longer-running by adding dots at the end of the message.
 Approach
 ---------
 Work Queues - one task producer / many workers sharing work.
+Author: Denise Case
+Date: January 15, 2023
+Revised by: Pasquale Salomone
+Date: September 6, 2023
 
 
 """
