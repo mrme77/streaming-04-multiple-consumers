@@ -17,6 +17,11 @@ Terminal Reminders
 - Use Control c to close a terminal and end a process.
 
 - Use the up arrow to get the last command executed.
+Author: Denise Case
+Date: January 15, 2023
+Revised by: Pasquale Salomone
+Date: September 6, 2023
+
 
 """
 
