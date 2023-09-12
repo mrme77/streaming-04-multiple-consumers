@@ -10,7 +10,8 @@
 import pika
 import sys
 import time
-
+rabbit_host = 'localhost'  
+queue_name = 'task_queue2'
 
 # define a callback function to be called when a message is received
 def callback(ch, method, properties, body):
@@ -27,14 +28,14 @@ def callback(ch, method, properties, body):
 
 
 # define a main function to run the program
-def main(hn: str = "localhost", qn: str = "task_queue2"):
+def main(host:str, queue:str):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
     try:
         # try this code, if it works, keep going
         # create a blocking connection to the RabbitMQ server
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=host))
 
     # except, if there's an error, do this
     except Exception as e:
@@ -53,7 +54,7 @@ def main(hn: str = "localhost", qn: str = "task_queue2"):
         # a durable queue will survive a RabbitMQ server restart
         # and help ensure messages are processed in order
         # messages will not be deleted until the consumer acknowledges
-        channel.queue_declare(queue=qn, durable=True)
+        channel.queue_declare(queue=queue, durable=True)
 
         # The QoS level controls the # of messages
         # that can be in-flight (unacknowledged by the consumer)
@@ -87,7 +88,7 @@ def main(hn: str = "localhost", qn: str = "task_queue2"):
         print(" User interrupted continuous listening process.")
         sys.exit(0)
     finally:
-        print("\nClosing connection. Goodbye.\n")
+        print("\nClosing connection. Ciao Ciao.\n")
         connection.close()
 
 
@@ -97,4 +98,4 @@ def main(hn: str = "localhost", qn: str = "task_queue2"):
 # If this is the program being run, then execute the code below
 if __name__ == "__main__":
     # call the main function with the information needed
-    main("localhost", "task_queue2")
+    main(rabbit_host, queue_name)
