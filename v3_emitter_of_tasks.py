@@ -18,7 +18,7 @@ rabbit_host = 'localhost'
 queue_name = 'task_queue2'
 
 # CSV file path
-csv_file = 'tasks.csv'  
+csv_file = 'Airports2.csv'  
 
 # Variable to control whether to offer to open RabbitMQ Admin site
 show_offer = True
@@ -84,7 +84,7 @@ def main(csv_file_path: str):
                message = ','.join(row)  # Convert row to a comma-separated string
                message = message+".."
                send_message("localhost", "task_queue2", message)
-         except KeyboardInterrupt:
+        except KeyboardInterrupt:
                 print()
                 print(" [x] Peacefully exiting application with CTRL+C")
                 sys.exit(0)
