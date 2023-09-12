@@ -13,6 +13,15 @@ import webbrowser
 import logging
 import time
 import csv
+# RabbitMQ configuration
+rabbit_host = 'localhost'
+queue_name = 'task_queue2'
+
+# CSV file path
+csv_file = 'tasks.csv'  
+
+# Variable to control whether to offer to open RabbitMQ Admin site
+show_offer = True
 
 def offer_rabbitmq_admin_site():
     """Open the RabbitMQ Admin website without asking"""
@@ -62,7 +71,7 @@ def send_message(host: str, queue_name: str, message: str):
         # close the connection to the server
         conn.close()
 
-def main(csv_file: str):
+def main(csv_file_path: str):
     # Open RabbitMQ Admin website
     offer_rabbitmq_admin_site()
 
