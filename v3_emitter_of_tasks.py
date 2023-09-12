@@ -79,11 +79,17 @@ def main(csv_file_path: str):
     with open(csv_file, 'r') as csvfile:
         reader = csv.reader(csvfile)
         next(reader) # skip the header row
-        for row in reader:
-            message = ','.join(row)  # Convert row to a comma-separated string
-            message = message+".."
-            send_message("localhost", "task_queue2", message)
-            #time.sleep(3)
+        try:
+           for row in reader:
+               message = ','.join(row)  # Convert row to a comma-separated string
+               message = message+".."
+               send_message("localhost", "task_queue2", message)
+         except KeyboardInterrupt:
+                print()
+                print(" [x] Peacefully exiting application with CTRL+C")
+                sys.exit(0)
+    
+
 if __name__ == "__main__":
     # Specify the CSV file name as a command-line argument
     print(" [*] Ready for work. To exit press CTRL+C")
