@@ -1,10 +1,10 @@
-"""
+ """
 This program sends a message to a queue on the RabbitMQ server.
 Make tasks harder/longer-running by adding dots at the end of the message.
+Press CTRL+C to peacefully exit the program.
 
 Author: Pasquale Salomone
 Date: September 6, 2023
-
 """
 
 import pika
@@ -16,18 +16,21 @@ import csv
 
 def offer_rabbitmq_admin_site():
     """Open the RabbitMQ Admin website without asking"""
-    webbrowser.open_new("http://localhost:15672/#/queues")
-    print()
+    global show_offer
+    if show_offer:
+        webbrowser.open_new("http://localhost:15672/#/queues")
+        print()
 
 def send_message(host: str, queue_name: str, message: str):
-    """
-This program sends a message to a queue on the RabbitMQ server.
-Make tasks harder/longer-running by adding dots at the end of the message.
-Press CTRL+C to peacefully exit the program.
+    '''This program sends a message to a queue on the RabbitMQ server.
+    Make tasks harder/longer-running by adding dots at the end of the message.
+    Press CTRL+C to peacefully exit the program.
 
-Author: Pasquale Salomone
-Date: September 6, 2023
-"""
+    Args:
+        host (str): The RabbitMQ server host.
+        queue_name (str): The name of the RabbitMQ queue.
+        message (str): The message to send.
+   '''
     try:
         # Construct the log file name based on the queue name
         log_file = f"{queue_name}_file.log"
