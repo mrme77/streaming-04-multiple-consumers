@@ -83,7 +83,7 @@ def main(csv_file_path: str):
            for row in reader:
                message = ','.join(row)  # Convert row to a comma-separated string
                message = message+".."
-               send_message("localhost", "task_queue2", message)
+               send_message(rabbit_host, queue_name, message)
         except KeyboardInterrupt:
                 print()
                 print(" [x] Peacefully exiting application with CTRL+C")
